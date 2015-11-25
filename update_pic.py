@@ -1,5 +1,6 @@
 from tweet import Twibot
 from os import listdir
+import sys
 from random import randint
 from apscheduler.schedulers.blocking import BlockingScheduler
 
@@ -15,4 +16,7 @@ def update_image():
 
 
 if __name__ == '__main__':
+    update_image()
+    if '--test' in sys.argv:
+        exit(0)
     sched.start()
