@@ -1,5 +1,5 @@
 from os import listdir
-import sys
+from sys import argv
 from random import randint
 from apscheduler.schedulers.blocking import BlockingScheduler
 from twitterbot_utils import Twibot
@@ -17,6 +17,6 @@ def update_image():
 
 if __name__ == '__main__':
     update_image()
-    if '--test' in sys.argv:
+    if '--test' in argv or '--oneshot' in argv:
         exit(0)
     sched.start()
