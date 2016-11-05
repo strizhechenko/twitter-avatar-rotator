@@ -1,24 +1,39 @@
-# zaebot
-Периодически читает ленту одного пользователя, дёргает оттуда существительные, относительно удачно склоняет подставляемое к ним слово "заебали" и постит это от второго пользователя.
+# Twitter Avatar Rotator
 
-Периодически удаляет те твиты, которые не набрали ни одного fav / rt.
+Why won't make everyone angry because of useless mobile traffic waste to fetch your avatar every day?:D
 
-## Конфиг
-- common - настройки приложения
-- reader - пользователь, ленту которого будем читать
-- writer - бот, от имени которого будем постить
+# Prepare
 
-## Идеи
-- Стоит перенести в конфиг некоторые параметры, например подставляемые слова, количество слов за пост и частоту постинга, но мне лениво.
-- Чёрный список для слов. (лол, итд)
+You need to:
 
-## usage
-После вбивания параметров в конфиг:
+## Choose photos
 
-    cd папка_с_проектом && setsid python bot.py &>/dev/null & disown -a
+Choose photos and put them to ./images/
 
-## Воплощения:
+## Environment
 
-- https://twitter.com/vsevsezaebali - читает ленту https://twitter.com/strizhechenko
-- https://twitter.com/memes_zaebot - читает список [никроблоггеров](https://twitter.com/strizhechenko/lists/memes-zaebali/members) ([отдельная ветка](https://github.com/strizhechenko/zaebot/tree/memes))
-- https://twitter.com/__coding_tips__ - ищет в твиттере сексуальные советы и переделывает их в советы по программированию ([отдельная ветка](https://github.com/strizhechenko/zaebot/tree/__coding_tips__))
+This repo is designed to run in heroku, but it is simple enough to understand how it works.
+
+You can run it locally:
+```shell
+virtualenv env
+pip install -r requirements.txt
+python update_pic.py
+```
+
+## App running
+
+Register your twitter application or if you already have one get your consumer key and consumer secret.
+
+```shell
+export consumer_key=PUT_YOUR_CONSUMER_KEY_HERE
+export consumer_secret=PUT_YOUR_CONSUMER_SECRET_HERE
+export user_access_token=PUT_YOUR_ACCESS_TOKEN_HERE
+export user_access_secret=PUT_YOUR_ACCESS_SECRET_HERE
+```
+
+You can get access token / secret by running on desktop:
+
+```shell
+python -u twitterbot_utils.TwiAuth
+```
