@@ -1,8 +1,8 @@
-from tweet import Twibot
 from os import listdir
 import sys
 from random import randint
 from apscheduler.schedulers.blocking import BlockingScheduler
+from twitterbot_utils import Twibot
 
 sched = BlockingScheduler()
 api = Twibot().api
